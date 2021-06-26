@@ -1,0 +1,47 @@
+1. registry server 에 docker 설치
+2. admin 계정을 생성 docker 사용자로 지정
+   (docker group 에 소속되어야 docker 명령어를 사용할수 있다)
+
+3. docker service start
+
+4. docker registry 이미지 다운롣드
+
+-> docker pull registry:latest
+
+5. registry container 실행
+-> docker run -d --name registry -p 5000:5000 --restart=alwyas registry
+
+-----------------------------------------------------------
+docker registry 에 docker image push
+
+1. tag 설정형식
+docker tag 이미지이름:tag docker registry url/이미지이름:tag
+
+비보안(insecure)  레지스트리 추가
+
+-> vi /etc/docker/daemon.json
+
+{"insecure-registries": ["registry.example.com:5000"] }
+
+# systemctl restart docker
+
+- docker image upload
+
+# docker tag hello-world registry.example.com:5000/hello-world
+# docker images
+# docker push registry.example.com:5000/hello-world
+
+
+--------------------------------------------------------
+
+확인 : 
+curl -X GET http://registry.example.com:5000/v2/_catalog
+
+* tag version 정보까지 확인하는 방법은
+ex) 
+curl -X GET http://registry.example.com:5000/v2/lee/myhttpd/tags/list
+{"name":"lee/myhttpd","tags":["1.0"]}
+
+prviate registry 로부터 도커이미지 다운로드 및 실행
+
+docker run -d registry.example.com:5000/hello-world:v1.0

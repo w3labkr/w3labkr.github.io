@@ -1,0 +1,22 @@
+1. wget http://twoseven.kr/mycentos.tar.bz2
+2. bzip2 -d mycentos.tar.bz2
+(* bzip2 가 설치안되어 있으면 yum -y install bzip2)
+3. docker load -i mycentos.tar
+4. mkdir files ; 디렉토리 이름은 마음대로,
+5. cp /etc/yum.repos.d/CentOS-Base.repo ./files
+6. vi ./files/index.html <-- welcome to ......  로 내용작성
+
+7. vi Dockerfile ; 아래처럼 작성
+# ----------------------------------------------
+FROM    mycentos:7
+ADD ./files/CentOS-Base.repo  /etc/yum.repos.d
+RUN yum -y install httpd
+ADD ./files/index.html  /var/www/html
+ENTRYPOINT ["httpd","-D","FOREGROUND"]
+# ----------------------------------------------
+
+8. docker build -t myapache:1.0 .  ; 태그이름은 마음대로...
+9. docker images 로 확인
+10 docker run -d myapache:1.0 
+11 curl http://172.17.x.x.  로 확인
+(ip 주소 모르면 docker container inspect 컨테이너이름 으로 확인)

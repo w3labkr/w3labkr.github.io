@@ -1,0 +1,78 @@
+# bash shell script for kubernetes install on centos7. edited by lee
+# 2021.06.20
+
+# config before reboot
+if [ -z "$REBOOT" ]
+then
+	export REBOOT=no
+	# docker install
+	yum install -y yum-utils
+	yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+	yum -y install docker-ce docker-ce-cli containerd.io
+	systemctl start docker
+	systemctl enable docker
+
+	# docker test
+	docker run hello-world 
+	if [ $? -ne 0 ]
+	then
+		echo "docker install failed"
+		echo "find the error, fix it and try again"
+		exit
+	fi
+
+	# disable firewall
+	systemctl disable firewalld
+	systemctl stop firewalld
+
+	# k8s.conf - configure iptables for bridge network.
+	echo "net.bridge.bridge-nf-call-ip6tables = 1" >> /etc/sysctl.d/k8s.conf
+	echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/k8s.conf
+	sysctl --system
+
+	# disable selinux
+	sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/sysconfig/selinux
+
+	# permanent swap off - kubernetes do not use swap memory
+	sed -e '/swap/s/^/#/' -i /etc/fstab
+
+	#set REBOOT variable before reboot
+	echo "export REBOOT=yes" >> /root/.bash_profile 
+
+	# reboot 
+	echo "##################################################################"
+	echo "This system will be rebooting now ... "
+	echo "you must run this script once more after this system rebooted"
+	echo "and will be run the rest lines in this script"
+	echo "##################################################################"
+	echo "sleep 10s"
+	echo "wait 10 seconds"
+	sleep 10s
+	echo "rebooting now..."
+	reboot
+fi
+
+# add yum repository file
+tee /etc/yum.repos.d/kubernetes.repo <<EOF
+[kubernetes]
+name=kubernetes repository
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF
+
+# verify repolist
+yum -y repolist
+
+# install & run kubernetes 
+yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+systemctl enable kubelet && systemctl start kubelet
+
+# unset REBOOT_var
+unset REBOOT
+sed -i '/REBOOT/d' /root/.bash_profile
+
+# 이 스크립트 실행 완료후에 master node 에 나머지 작업을 하면 됩니다.
+# (pod network 설정 및 CNI 설치등..)

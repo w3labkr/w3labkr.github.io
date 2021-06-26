@@ -1,0 +1,18 @@
+[devops@server1 work]$ cat docker-compose.yaml
+version: '3.8'
+services:
+  myapache:
+    image: httpd:2.4 # key: value => dictionary  == hash == associative array 
+    ports:             
+    - "9000:80"    # - => list 
+  mydb:
+    image: mysql:5.5
+    ports:
+    - "9001:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=mypass
+    - MYSQL_USER=myuser
+    - MYSQL_PASSWORD=userpass
+    - MYSQL_DATABASE=mydb
+    volumes:
+    - /var/dbdata:/var/lib/mysql

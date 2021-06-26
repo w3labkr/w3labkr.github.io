@@ -1,27 +1,25 @@
 module.exports = {
-  title: "VuePress",
-  description: "Just playing around",
+  title: "W3LAB",
+  description: "World Wide Web Laboratory",
   themeConfig: {
     // logo: './logo.png',
     nav: [
       { text: "Home", link: "/" },
       { text: "About", link: "/about/" },
       { text: "Guide", link: "/guide/docker/installation" },
+      { text: "Github", link: "http://github.com/w3labkr" }
     ],
     sidebar: [
       {
         title: 'Docker',
         collapsable: false,
-        sidebarDepth: 1,
         children: [
-          '/guide/docker/installation',
-          '/guide/docker/onbuild'
+          '/guide/docker/compose',
         ]
       },
       {
         title: 'Kubernetes',
         collapsable: false,
-        sidebarDepth: 1,
         children: [
           '/guide/kubernetes/installation',
         ]

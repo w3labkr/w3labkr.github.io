@@ -1,0 +1,21 @@
+-- Dockerfile 실습 --
+
+- 아래의 작업 내용을 Dockerfile 로 작성해서
+실행하세요.
+
+도커이미지 생성을 위한 베이스 이미지를
+http://twoseven.kr/mycentos.tar.bz2
+파일을 wget 으로 다운로드 받아서 사용하세요
+
+다운로드 받은 base image 를 사용하여
+아파치를 설치하고 초기페이지는 welcome to my apache server ^^
+가 출력되게 설정하세요
+
+컨테이너 실행후
+웹서버 초기페이지를 볼수 있어야 합니다.
+
+-- curl http://x.x.x.x
+
+* mycentos.tar.bz2 이미지는 centos:7 이미지 파일기반으로 만들어졌으며 
+ mycentos.tar.bz2 에는  yum 명령어로  패키지 설치를 위한 repository 파일(/etc/yum.repos.d/CentOS-Base.repo 파일이 없습니다. 
+yum 으로 인터넷 저장소  패키지를 내려받아서 설치하기 위해서는 CentOS-Base.repo 파일이 필요합니다.
