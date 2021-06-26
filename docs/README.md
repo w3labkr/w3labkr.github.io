@@ -1,1 +1,6 @@
-# Hello VuePress
+---
+sidebar: false
+---
+# Hello World
+
+## Welcome

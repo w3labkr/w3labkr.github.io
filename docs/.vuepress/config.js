@@ -1,28 +1,31 @@
 module.exports = {
-  title: "Hello VuePress",
+  title: "VuePress",
   description: "Just playing around",
   themeConfig: {
     // logo: './logo.png',
     nav: [
       { text: "Home", link: "/" },
-      { text: "Guide", link: "/guide/" },
-      { text: "External", link: "https://google.com" },
+      { text: "About", link: "/about/" },
+      { text: "Guide", link: "/guide/docker/installation" },
     ],
     sidebar: [
       {
-        title: "Group 1", // required
-        path: "/foo/", // optional, link of the title, which should be an absolute path and must exist
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1, // optional, defaults to 1
-        children: ["/"],
+        title: 'Docker',
+        collapsable: false,
+        sidebarDepth: 1,
+        children: [
+          '/guide/docker/installation',
+          '/guide/docker/onbuild'
+        ]
       },
       {
-        title: "Group 2",
+        title: 'Kubernetes',
+        collapsable: false,
+        sidebarDepth: 1,
         children: [
-          /* ... */
-        ],
-        initialOpenGroupIndex: -1, // optional, defaults to 0, defines the index of initially opened subgroup
-      },
+          '/guide/kubernetes/installation',
+        ]
+      }
     ],
     search: true,
     searchMaxSuggestions: 10,
@@ -33,7 +36,6 @@ module.exports = {
     smoothScroll: true,
   },
   plugins: [
-    ["@vuepress/blog"],
     [
       "@vuepress/active-header-links",
       {
