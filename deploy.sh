@@ -13,8 +13,8 @@ cd docs/.vuepress/dist
 # echo 'www.example.com' > CNAME
 
 git init
-git config user.name "www"
-git config user.email "git@w3lab.kr"
+git config user.name "$(git config user.name)"
+git config user.email "$(git config user.email)"
 
 git add -A
 
@@ -25,6 +25,10 @@ git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
-git push -f git@github.com:w3labkr/w3labkr.github.io.git master:gh-pages
+# git push -f git@github.com:w3labkr/vuepress.git master:gh-pages
+
+# If deploying with multiple ssh keys.
+# git push -f git@<USERNAME>.github.com:<USERNAME>/<REPO>.git master:gh-pages
+git push -f git@w3labkr.github.com:w3labkr/vuepress.git master:gh-pages
 
 cd -
