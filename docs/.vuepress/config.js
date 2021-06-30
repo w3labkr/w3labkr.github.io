@@ -1,29 +1,33 @@
 module.exports = {
+  base: "/",
   title: "W3LAB",
   description: "World Wide Web Laboratory",
   themeConfig: {
-    // logo: './logo.png',
     nav: [
       { text: "Home", link: "/" },
-      { text: "About", link: "/about/" },
-      { text: "Guide", link: "/guide/docker/installation" },
-      { text: "Github", link: "http://github.com/w3labkr" }
+      { text: "Guide", link: "/guide/docker/" },
+      { text: "Stars", link: "/stars/html" },
+      { text: "Github", link: "https://github.com/w3labkr/w3labkr.github.io" },
     ],
     sidebar: [
       {
-        title: 'Docker',
+        title: "Guide",
         collapsable: false,
-        children: [
-          '/guide/docker/compose',
-        ]
+        sidebarDepth: 1,
+        children: ["/guide/docker/", "/guide/kubernetes/", "/guide/linux/"],
       },
       {
-        title: 'Kubernetes',
+        title: "Stars",
         collapsable: false,
+        sidebarDepth: 1,
         children: [
-          '/guide/kubernetes/installation',
-        ]
-      }
+          "/stars/html",
+          "/stars/css",
+          "/stars/javascript",
+          "/stars/php",
+          "/stars/python",
+        ],
+      },
     ],
     search: true,
     searchMaxSuggestions: 10,
@@ -40,7 +44,8 @@ module.exports = {
         sidebarLinkSelector: ".sidebar-link",
         headerAnchorSelector: ".header-anchor",
       },
-    ][("@vuepress/back-to-top", true)],
+    ],
+    ["@vuepress/back-to-top", true],
     ["@vuepress/last-updated"],
     ["@vuepress/medium-zoom"],
     ["@vuepress/nprogress"],
