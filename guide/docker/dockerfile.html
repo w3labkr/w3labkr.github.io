@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>도커 재시작 | WWW</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="World Wide Web Laboratory">
+    
+    <link rel="preload" href="/assets/css/0.styles.3f26aa79.css" as="style"><link rel="preload" href="/assets/js/app.55ff8e94.js" as="script"><link rel="preload" href="/assets/js/2.0a29985b.js" as="script"><link rel="preload" href="/assets/js/15.99f238e0.js" as="script"><link rel="prefetch" href="/assets/js/10.f2a634f6.js"><link rel="prefetch" href="/assets/js/11.b2e370b1.js"><link rel="prefetch" href="/assets/js/12.2866b0c8.js"><link rel="prefetch" href="/assets/js/13.5947ee06.js"><link rel="prefetch" href="/assets/js/14.dcc519f0.js"><link rel="prefetch" href="/assets/js/16.d2219cd7.js"><link rel="prefetch" href="/assets/js/17.c32c854d.js"><link rel="prefetch" href="/assets/js/18.dda881f8.js"><link rel="prefetch" href="/assets/js/19.12ff9a81.js"><link rel="prefetch" href="/assets/js/20.7aad7ab3.js"><link rel="prefetch" href="/assets/js/21.45a901de.js"><link rel="prefetch" href="/assets/js/22.8e7007c6.js"><link rel="prefetch" href="/assets/js/23.71a58221.js"><link rel="prefetch" href="/assets/js/24.82ba2263.js"><link rel="prefetch" href="/assets/js/25.358b0e73.js"><link rel="prefetch" href="/assets/js/26.ef54dbf6.js"><link rel="prefetch" href="/assets/js/27.04ec9c93.js"><link rel="prefetch" href="/assets/js/28.567e5614.js"><link rel="prefetch" href="/assets/js/29.3f8ac60a.js"><link rel="prefetch" href="/assets/js/3.cbf8b8b9.js"><link rel="prefetch" href="/assets/js/30.3ac5c1ab.js"><link rel="prefetch" href="/assets/js/31.c7fda306.js"><link rel="prefetch" href="/assets/js/32.a9d29e3b.js"><link rel="prefetch" href="/assets/js/33.9ba409f4.js"><link rel="prefetch" href="/assets/js/34.b8cb1920.js"><link rel="prefetch" href="/assets/js/35.f6f701da.js"><link rel="prefetch" href="/assets/js/36.79dca0c0.js"><link rel="prefetch" href="/assets/js/37.4cd0884b.js"><link rel="prefetch" href="/assets/js/38.8325dc05.js"><link rel="prefetch" href="/assets/js/39.d164d99c.js"><link rel="prefetch" href="/assets/js/4.6b7c85d3.js"><link rel="prefetch" href="/assets/js/5.77951580.js"><link rel="prefetch" href="/assets/js/6.5f77a159.js"><link rel="prefetch" href="/assets/js/7.8ab1771c.js"><link rel="prefetch" href="/assets/js/8.c2d015ef.js"><link rel="prefetch" href="/assets/js/9.7b70d4a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3f26aa79.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">WWW</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="/stars/html.html" class="nav-link">
+  Stars
+</a></div><div class="nav-item"><a href="https://github.com/w3labkr/w3labkr.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="/stars/html.html" class="nav-link">
+  Stars
+</a></div><div class="nav-item"><a href="https://github.com/w3labkr/w3labkr.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Guide</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/docker/" aria-current="page" class="sidebar-link">Docker</a></li><li><a href="/guide/kubernetes/" class="sidebar-link">Kubernetes</a></li><li><a href="/guide/linux/" class="sidebar-link">Linux</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Stars</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/stars/html.html" class="sidebar-link">HTML</a></li><li><a href="/stars/css.html" class="sidebar-link">CSS</a></li><li><a href="/stars/javascript.html" class="sidebar-link">Javascript</a></li><li><a href="/stars/php.html" class="sidebar-link">PHP</a></li><li><a href="/stars/python.html" class="sidebar-link">Python</a></li><li><a href="/stars/framework/wordpress.html" class="sidebar-link">WordPress</a></li><li><a href="/stars/framework/vue.html" class="sidebar-link">Vue</a></li><li><a href="/stars/framework/laravel.html" class="sidebar-link">Laravel Framework</a></li><li><a href="/stars/framework/codeIgniter.html" class="sidebar-link">CodeIgniter</a></li><li><a href="/stars/framework/gnuboard.html" class="sidebar-link">Gnuboard</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="도커-재시작"><a href="#도커-재시작" class="header-anchor">#</a> 도커 재시작</h2> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">mkdir</span> work
+$ <span class="token builtin class-name">cd</span> work
+$ <span class="token builtin class-name">pwd</span>
+/home/devops/work
+
+<span class="token comment"># 도커가 프로세스에 올라와 있는지 확인하기</span>
+$ pgrep -fl docker
+
+<span class="token comment"># 서버 재시작시 도커 시작</span>
+$ systemctl <span class="token builtin class-name">enable</span> docker
+$ systemctl start docker
+</code></pre></div><h2 id="도커-파일-제작"><a href="#도커-파일-제작" class="header-anchor">#</a> 도커 파일 제작</h2> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">vim</span> Dockerfile
+FROM alpine:latest
+
+RUN <span class="token builtin class-name">echo</span> <span class="token string">&quot;hello&quot;</span>
+RUN <span class="token builtin class-name">echo</span> <span class="token string">&quot;container test&quot;</span>
+RUN <span class="token function">touch</span> /tmp/testfile
+
+<span class="token comment"># 도커파일 이름이 기본 이름일 경우</span>
+$ docker build --tag myimage:1.0 /home/devops/work
+
+<span class="token comment"># 도커파일 이름이 기본 이름이 아닐경우</span>
+$ <span class="token function">cp</span> Dockerfile myfile
+$ docker build --tag myimage:1.1 -f myfile <span class="token builtin class-name">.</span>
+
+<span class="token comment"># 도커실행</span>
+$ docker run -d myimage:1.0 /bin/sleep 3600s
+$ docker <span class="token builtin class-name">exec</span> -it tender_cartwright /bin/bash
+<span class="token variable">$#</span> <span class="token function">df</span> -h
+<span class="token variable">$#</span> <span class="token function">ifconfig</span>
+
+<span class="token comment"># apk: 기본 패키지 관리 도구</span>
+<span class="token variable">$#</span> apk update
+<span class="token variable">$#</span> apk <span class="token function">add</span> <span class="token function">vim</span>
+<span class="token variable">$#</span> apk <span class="token function">add</span> apache2
+
+<span class="token variable">$#</span> <span class="token builtin class-name">cd</span> /etc/apache2
+<span class="token variable">$#</span> <span class="token function">grep</span> DocumentRoot httpd.conf
+<span class="token variable">$#</span> <span class="token builtin class-name">cd</span> /var/www/localhost/htdocs
+<span class="token variable">$#</span> <span class="token function">cat</span> index.html
+</code></pre></div><h2 id="run-entrypoint-cmd"><a href="#run-entrypoint-cmd" class="header-anchor">#</a> RUN / ENTRYPOINT / CMD</h2> <p>도커 빌드 중에 새로운 파일을 만들 경우에는 적용되지 않는다.</p> <ul><li>고정된 인수를 계속 사용할때 ENTRYPOINT 를 사용하고</li> <li>인수가 변경될 수 있을떄 CMD 커맨드를 사용한다.</li> <li>대괄호가 없으면 단독으로 실행되고</li> <li>대괄호가 있으면 shell 로 처리 된다.</li></ul> <h3 id="run"><a href="#run" class="header-anchor">#</a> RUN</h3> <ul><li>모든 파일을 도커 데몬으로 전송 함.</li> <li>실제 빌드에 사용되는 시간이 적게 걸리나 도커 데몬에 전송할때 시간이 많이 걸림.</li> <li>빌드를 할때 파일이 없는 곳에서 하던가 .dockerignore 파일 생성 후 예외처리 필요.</li> <li>작업 디렉토리에 파일이 많거나 용량이 큰 경우에는 추천하지 않음</li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">vim</span> Dockerfile
+FROM centos:7
+
+RUN <span class="token function">touch</span> /tmp/testfile
+RUN <span class="token function">cal</span>
+RUN <span class="token builtin class-name">echo</span> <span class="token string">&quot;hello linux&quot;</span>
+<span class="token comment"># Do not run sleep</span>
+<span class="token comment">#RUN /bin/sleep 3600s</span>
+
+$ docker build --tag myweb:1.0 <span class="token builtin class-name">.</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">sudo</span> <span class="token function">cp</span> Dockerfile /usr/
+$ <span class="token builtin class-name">cd</span> /usr
+$ <span class="token function">cat</span> Dockerfile
+$ <span class="token function">sudo</span> docker build -t newimage:1.0 <span class="token builtin class-name">.</span>
+
+<span class="token comment"># 용량 확인</span>
+$ <span class="token function">sudo</span> <span class="token function">du</span> -sh /usr
+<span class="token number">1</span>.7G    /usr
+
+<span class="token comment"># 도커 이그노어 파일 추가</span>
+$ <span class="token function">sudo</span> <span class="token function">vim</span> .dockerignore
+*
+<span class="token operator">!</span>Dockerfile
+
+$ <span class="token function">ls</span> -a
+$ <span class="token function">sudo</span> docker build -t newimage:2.0 <span class="token builtin class-name">.</span>
+</code></pre></div><h3 id="cmd"><a href="#cmd" class="header-anchor">#</a> CMD</h3> <ul><li>CMD 와 ENTRYPOINT 는 하나의 도커 파일내에서 한번만 사용할 수 있다.</li> <li>도커 이미지를 빌드할때 말고 컨테이너를 실행할 떄 실행하는 명령어 이다.</li> <li>중복으로 입력될 경우 가장 마지막에 있는 커맨드만 실행된다.</li></ul> <p>shell 형식</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">vim</span> Dockerfile
+
+<span class="token comment"># /bin/sleep 는 바이너리 데이터 이기 때문에 -c 옵션을 사용하여 실행한다.</span>
+<span class="token comment"># bash에서 -c 옵션이란 파라미터 변수값을 변경해주는 옵션이다.</span>
+<span class="token comment"># shell 타입: /bin/sh -c /bin/sleep 7200s</span>
+CMD /bin/sleep 3600s
+
+$ docker build -t myimage:3.1 <span class="token builtin class-name">.</span>
+$ docker run -d myimage:3.1
+
+<span class="token comment"># 따옴표를 붙이지 않을 경우에는 cal 인수를 무시한다.</span>
+$ /bin/bash -c <span class="token string">'cal 07 2021'</span>
+</code></pre></div><p>exec 형식</p> <div class="language-shell extra-class"><pre class="language-shell"><code>CMD <span class="token punctuation">[</span><span class="token string">&quot;/bin/sleep&quot;</span>, <span class="token string">&quot;3600s&quot;</span><span class="token punctuation">]</span>
+<span class="token comment"># shell 타입의 커맨드와 결과적으로 동일</span>
+<span class="token comment">#CMD /bin/sleep 3600s</span>
+<span class="token comment">#CMD [&quot;/bin/sleep&quot;, &quot;-c&quot;, &quot;/bin/sleep&quot;, &quot;3600s&quot;]</span>
+
+$ docker build -t myimage:3.2 <span class="token builtin class-name">.</span>
+$ docker run -d myimage:3.2
+</code></pre></div><h3 id="entrypoint"><a href="#entrypoint" class="header-anchor">#</a> ENTRYPOINT</h3> <p>top</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># process 를 3초마다 갱신해서 보여준다. 모니터링 목적으로 사용 된다.</span>
+$ <span class="token function">top</span>
+<span class="token comment"># 5초마다 갱신 된다.</span>
+$ <span class="token function">top</span> -d <span class="token number">5</span>
+</code></pre></div><p>ENTRYPOINT 의 다음에 CMD가 사용될 경우 CMD는 ENTRYPOINT의 인수로서 사용된다.</p> <p>shell 형식</p> <div class="language-shell extra-class"><pre class="language-shell"><code>ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;/bin/top&quot;</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 인수가 없을경우의 기본값으로 사용 된다.</span>
+CMD <span class="token punctuation">[</span><span class="token string">&quot;-d&quot;</span>, <span class="token string">&quot;5&quot;</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 모니터에 무엇인가를 계속 출력시킬경우 -t:terminal 옵션이 필요하다.</span>
+$ docker build -t myimage:4.0 <span class="token builtin class-name">.</span>
+$ docker run -d -t myimage:4.0
+
+<span class="token comment"># 인수를 직접 전달 할 수 있다.</span>
+$ docker run -d -t myimage:4.0 <span class="token string">&quot;-d 1&quot;</span>
+</code></pre></div><p>ENTRYPOINT 에 인수를 독립적으로 사용할 경우. 인수가 바꿀 수 없는 값으로 적용된다.</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 인수를 전달 받지 못하는 기본값으로 적용 된다.</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">&quot;/bin/top&quot;</span>, <span class="token string">&quot;-d&quot;</span>, <span class="token string">&quot;5&quot;</span><span class="token punctuation">]</span>
+
+$ docker build -t myimage:4.1 <span class="token builtin class-name">.</span>
+$ docker run -d -t myimage:4.1
+</code></pre></div><h2 id="unbuild"><a href="#unbuild" class="header-anchor">#</a> Unbuild</h2> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">vim</span> Dockerfile
+FROM ubuntu:18.04
+
+<span class="token comment"># RUN 이 실행될때마다 layer 가 생성되어 성능에 안좋은 영향을 미친다. 한줄로 합치자.</span>
+RUN <span class="token function">apt-get</span> -y update
+RUN <span class="token function">apt-get</span> -y upgrade
+RUN <span class="token function">apt-get</span> -y <span class="token function">install</span> nginx
+
+EXPOSE <span class="token number">80</span>
+
+CMD <span class="token punctuation">[</span><span class="token string">&quot;nginx&quot;</span>, <span class="token string">&quot;-g&quot;</span>, <span class="token string">&quot;daemon off&quot;</span><span class="token punctuation">]</span>
+
+$ docker build -t mynginx:1.0 <span class="token builtin class-name">.</span>
+$ docker run -d -t mynginx:1.0
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">6/26/2021, 6:22:50 PM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.55ff8e94.js" defer></script><script src="/assets/js/2.0a29985b.js" defer></script><script src="/assets/js/15.99f238e0.js" defer></script>
+  </body>
+</html>

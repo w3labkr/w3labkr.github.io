@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>도커 네트워크 유틸리티 | WWW</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="World Wide Web Laboratory">
+    
+    <link rel="preload" href="/assets/css/0.styles.3f26aa79.css" as="style"><link rel="preload" href="/assets/js/app.55ff8e94.js" as="script"><link rel="preload" href="/assets/js/2.0a29985b.js" as="script"><link rel="preload" href="/assets/js/19.12ff9a81.js" as="script"><link rel="prefetch" href="/assets/js/10.f2a634f6.js"><link rel="prefetch" href="/assets/js/11.b2e370b1.js"><link rel="prefetch" href="/assets/js/12.2866b0c8.js"><link rel="prefetch" href="/assets/js/13.5947ee06.js"><link rel="prefetch" href="/assets/js/14.dcc519f0.js"><link rel="prefetch" href="/assets/js/15.99f238e0.js"><link rel="prefetch" href="/assets/js/16.d2219cd7.js"><link rel="prefetch" href="/assets/js/17.c32c854d.js"><link rel="prefetch" href="/assets/js/18.dda881f8.js"><link rel="prefetch" href="/assets/js/20.7aad7ab3.js"><link rel="prefetch" href="/assets/js/21.45a901de.js"><link rel="prefetch" href="/assets/js/22.8e7007c6.js"><link rel="prefetch" href="/assets/js/23.71a58221.js"><link rel="prefetch" href="/assets/js/24.82ba2263.js"><link rel="prefetch" href="/assets/js/25.358b0e73.js"><link rel="prefetch" href="/assets/js/26.ef54dbf6.js"><link rel="prefetch" href="/assets/js/27.04ec9c93.js"><link rel="prefetch" href="/assets/js/28.567e5614.js"><link rel="prefetch" href="/assets/js/29.3f8ac60a.js"><link rel="prefetch" href="/assets/js/3.cbf8b8b9.js"><link rel="prefetch" href="/assets/js/30.3ac5c1ab.js"><link rel="prefetch" href="/assets/js/31.c7fda306.js"><link rel="prefetch" href="/assets/js/32.a9d29e3b.js"><link rel="prefetch" href="/assets/js/33.9ba409f4.js"><link rel="prefetch" href="/assets/js/34.b8cb1920.js"><link rel="prefetch" href="/assets/js/35.f6f701da.js"><link rel="prefetch" href="/assets/js/36.79dca0c0.js"><link rel="prefetch" href="/assets/js/37.4cd0884b.js"><link rel="prefetch" href="/assets/js/38.8325dc05.js"><link rel="prefetch" href="/assets/js/39.d164d99c.js"><link rel="prefetch" href="/assets/js/4.6b7c85d3.js"><link rel="prefetch" href="/assets/js/5.77951580.js"><link rel="prefetch" href="/assets/js/6.5f77a159.js"><link rel="prefetch" href="/assets/js/7.8ab1771c.js"><link rel="prefetch" href="/assets/js/8.c2d015ef.js"><link rel="prefetch" href="/assets/js/9.7b70d4a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3f26aa79.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">WWW</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="/stars/html.html" class="nav-link">
+  Stars
+</a></div><div class="nav-item"><a href="https://github.com/w3labkr/w3labkr.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="/stars/html.html" class="nav-link">
+  Stars
+</a></div><div class="nav-item"><a href="https://github.com/w3labkr/w3labkr.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Guide</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/docker/" aria-current="page" class="sidebar-link">Docker</a></li><li><a href="/guide/kubernetes/" class="sidebar-link">Kubernetes</a></li><li><a href="/guide/linux/" class="sidebar-link">Linux</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Stars</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/stars/html.html" class="sidebar-link">HTML</a></li><li><a href="/stars/css.html" class="sidebar-link">CSS</a></li><li><a href="/stars/javascript.html" class="sidebar-link">Javascript</a></li><li><a href="/stars/php.html" class="sidebar-link">PHP</a></li><li><a href="/stars/python.html" class="sidebar-link">Python</a></li><li><a href="/stars/framework/wordpress.html" class="sidebar-link">WordPress</a></li><li><a href="/stars/framework/vue.html" class="sidebar-link">Vue</a></li><li><a href="/stars/framework/laravel.html" class="sidebar-link">Laravel Framework</a></li><li><a href="/stars/framework/codeIgniter.html" class="sidebar-link">CodeIgniter</a></li><li><a href="/stars/framework/gnuboard.html" class="sidebar-link">Gnuboard</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="도커-네트워크-유틸리티"><a href="#도커-네트워크-유틸리티" class="header-anchor">#</a> 도커 네트워크 유틸리티</h2> <p>패키지 확인</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">rpm</span> -q bridge-utils net-tools
+</code></pre></div><p>패키지 설치</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ yum <span class="token function">install</span> -y bridge-utils net-tools
+</code></pre></div><p>도커 네트워크 확인</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker network inspect
+</code></pre></div><p>브릿지 확인</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker network inspect bridge
+</code></pre></div><p>네트워크 확인</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker network <span class="token function">ls</span>
+</code></pre></div><p>새로운 브릿지 생성: 보안상 중요한 내용</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker network create --driver bridge mybridge
+$ docker network <span class="token function">ls</span>
+</code></pre></div><p>센트8 은 도커 내부에서 랜카드 확인 가능하다.</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 죽음</span>
+$ docker run -d --network mybridge centos:8
+<span class="token comment"># 1시간 동안 죽지 않는 컨테이너 실행</span>
+$ docker run -d --network mybridge centos:8 /bin/sleep 3600s
+$ docker <span class="token function">ps</span> 
+</code></pre></div><p>비공개 웹서버 실행</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker run -d --network mybridge --name newhttpd httpd:2.4
+
+$ docker <span class="token builtin class-name">exec</span> -it newhttpd /bin/bash
+$ <span class="token builtin class-name">echo</span> <span class="token string">&quot;welcome to new apache&quot;</span> <span class="token operator">&gt;</span> htdocs/index.html
+$ <span class="token builtin class-name">exit</span>
+
+$ docker run -d --name br_net_centos8 centos:8 /bin/sleep 3600s
+$ docker <span class="token function">ps</span> 
+</code></pre></div><p>네트워크 상태 확인</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 네트워크 관리 데몬 확인</span>
+$ pgrep -fl NetworkManager
+
+<span class="token comment"># 랜카드 정보 확인</span>
+<span class="token comment"># NetworkManager를 사용하지 않으면 nmcli를 사용할 수 없다.</span>
+$ nmcli device status
+
+<span class="token comment"># 브릿지 정보 확인</span>
+$ brctl show
+
+<span class="token comment"># 도커 아이피 확인</span>
+$ <span class="token function">ip</span> addr show
+
+<span class="token comment"># 도커 네트워크 확인</span>
+$ docker network <span class="token function">ls</span>
+</code></pre></div><p>테스트 컨테이너 실행</p> <ul><li>커맨드 실행과 동시에 필요없는 컨테이너 삭제 옵션: --rm</li> <li>커맨드 명령어를 보기위해선 백그라운드로 실행하면 안된다.</li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker run --rm centos:8 /bin/curl http:172.8.0.3
+</code></pre></div><p>브릿지 네트워크 확인</p> <div class="language- extra-class"><pre class="language-text"><code>$ docker network inspect bridge
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>$ docker run -d --name<span class="token operator">=</span>mycentos2 centos:8 /bin/sleep 1800s
+
+$ docker network connect bridge newhttpd
+$ docker network <span class="token function">ls</span>
+
+$ docker <span class="token builtin class-name">exec</span> -it mycentos2 /bin/bash
+$ <span class="token function">curl</span> http://172.8.0.3
+</code></pre></div><p>도커 네트워크 삭제</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker network disconnect bridge newhttpd
+</code></pre></div><p>아이피 대역을 명시적으로 할당</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker network create --driver bridge custom_bridge <span class="token punctuation">\</span>
+--subnet <span class="token number">172.30</span>.0.0/16 --ip-range <span class="token number">172.30</span>.0.0/24 --gateway <span class="token number">172.30</span>.0.1
+$ docker network <span class="token function">ls</span>
+$ docker network connect custom_bridge newhttpd
+</code></pre></div><p>사용자 정의 호스트는 생성할 수 없다.</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker network create --driver <span class="token function">host</span> myhost
+Error response from daemon: only one instance of <span class="token string">&quot;host&quot;</span> network is allowed
+</code></pre></div><p>호스트타입의 네트워크 접속</p> <div class="language- extra-class"><pre class="language-text"><code>$ docker run -d --network host --name host_net_centos8-2 centos:8 /bin/sleep 3600s
+$ docker exec -it host_net_centos8-2
+
+# 아이피 확인
+$# ip addr show
+
+# 호스트 확인
+$# cat /etc/hosts
+
+# 프로세스 확인
+$# ps -ef
+
+# .. 확인
+$# cat /etc/resolv.conf
+</code></pre></div><p>호스트타입</p> <ul><li>bridge: 기본타입. 가장 많이 사용하고 추가 및 삭제 가능</li> <li>host: 호스트 네트워크를 같이 사용하기 위함</li> <li>none: 네트워크가 필요 없는 경우</li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>$ nmcli dev status
+$ docker network <span class="token function">rm</span> <span class="token operator">&lt;</span>network-id<span class="token operator">&gt;</span>
+</code></pre></div><p>실행 권한: docker 를 실행하기 위한 권한은 docker 라는 그룹에 속해 있으면 된다.</p> <div class="language- extra-class"><pre class="language-text"><code>$ groups
+</code></pre></div><p>모든 도커 강제 삭제</p> <div class="language- extra-class"><pre class="language-text"><code>$ dockr rm -f $(docker ps -aq)
+
+# 엘리아스 등록
+$ vim ~/.bashrc
+$ alias rmcont='docker stop $(docker ps -q); docker rm $(docker ps -aq)'
+</code></pre></div><h2 id="실습1-도커-실행"><a href="#실습1-도커-실행" class="header-anchor">#</a> 실습1: 도커 실행</h2> <ul><li>httpd:2.4 아파치 이미지를 실행하고 초기 페이지를 변경</li> <li>curl http://x.x.x.x ==&gt; Hello my container</li></ul> <p>도커 컨테이너 실행</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker pull httpd:2.4
+$ docker run -d --name myapache httpd:2.4
+</code></pre></div><p>컨테이너 인덱스 파일 수정</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker <span class="token builtin class-name">exec</span> -it myapache /bin/bash
+$ <span class="token builtin class-name">echo</span> <span class="token string">&quot;Hello my container&quot;</span> <span class="token operator">&gt;</span> ./htdocs/index.html
+$ <span class="token builtin class-name">exit</span>
+</code></pre></div><p>컨테이너 아이피 확인</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker container inspect myapache
+$ <span class="token function">curl</span> http://172.17.0.1
+</code></pre></div><p>아이피 확인</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># -nltp n:number l:listen t:tcp p:process</span>
+$ <span class="token function">netstat</span> -nltp
+$ docker container <span class="token function">ps</span>
+</code></pre></div><h2 id="실습2-웹브라우저-확인"><a href="#실습2-웹브라우저-확인" class="header-anchor">#</a> 실습2: 웹브라우저 확인</h2> <ul><li>nginx container 실행</li> <li>mswindows 웹브라우저로 초기페이지 확인</li></ul> <p>도커 컨테이너 실행</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker pull nginx
+
+<span class="token comment"># 로컬 컴퓨터의 아이피는 생략가능하다.</span>
+$ docker container run -d --name webserver -p :80 nginx
+</code></pre></div><p>방화벽 설정</p> <div class="language- extra-class"><pre class="language-text"><code># 포트 포워딩 확인
+$ sudo firewall-cmd --list-all
+
+# 도커는 iptables 사용하여 방화벽을 설정한다.
+$ sudo iptables --table nat --list -n | grep 80
+</code></pre></div><p>로컬 컴퓨터 아이피 확인</p> <div class="language- extra-class"><pre class="language-text"><code>$ IPv4 Address
+# ifconfig
+enp0s3: inet
+</code></pre></div><p>http://192.168.56.101:49153</p> <h2 id="실습3-데이터베이스-생성"><a href="#실습3-데이터베이스-생성" class="header-anchor">#</a> 실습3: 데이터베이스 생성</h2> <ul><li>mysql:5.5 =&gt; databse 생성</li> <li>create database mydb</li></ul> <p>도커 컨테이너 실행</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker pull mysql:5.5
+$ docker run -d mysql:5.5
+</code></pre></div><p>도커 컨테이너 디버깅</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#$ docker container logs &lt;container-id&gt;</span>
+$ docker container logs interesting_lichterman
+error: database is uninitialized and password option is not specified
+  You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD
+
+$ docker run -d --env <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>mypass --name mysql5 mysql:5.5
+</code></pre></div><p>도커 데이터베이스 생성</p> <div class="language- extra-class"><pre class="language-text"><code>$ docker exec -it mysql5 /bin/bash
+$ mysql -u root -pmypass
+mysql&gt; create database mydb;
+mysql&gt; show databases;
+mysql&gt; exit;
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">6/26/2021, 6:22:50 PM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.55ff8e94.js" defer></script><script src="/assets/js/2.0a29985b.js" defer></script><script src="/assets/js/19.12ff9a81.js" defer></script>
+  </body>
+</html>
