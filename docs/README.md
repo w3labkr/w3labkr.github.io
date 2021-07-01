@@ -1,5 +1,6 @@
 ---
-sidebar: false
+home: false
+sidebar: true
 ---
 # Hello World
 

@@ -6,6 +6,4 @@ My favorite html repository
 
 A professional front-end template for building fast, robust, and adaptable web apps or sites.
 
-## html5shiv
-
-This script is the defacto way to enable use of HTML5 sectioning elements in legacy Internet Explorer.
+- <https://github.com/h5bp/html5-boilerplate>

@@ -1,11 +1,11 @@
 module.exports = {
   base: "/",
-  title: "W3LAB",
+  title: "WWW",
   description: "World Wide Web Laboratory",
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
-      { text: "Guide", link: "/guide/docker/" },
+      { text: "Guide", link: "/guide/" },
       { text: "Stars", link: "/stars/html" },
       { text: "Github", link: "https://github.com/w3labkr/w3labkr.github.io" },
     ],
@@ -26,6 +26,11 @@ module.exports = {
           "/stars/javascript",
           "/stars/php",
           "/stars/python",
+          "/stars/framework/wordpress",
+          "/stars/framework/vue",
+          "/stars/framework/laravel",
+          "/stars/framework/codeIgniter",
+          "/stars/framework/gnuboard",
         ],
       },
     ],
