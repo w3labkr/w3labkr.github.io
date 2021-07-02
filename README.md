@@ -6,4 +6,4 @@ Hello World!
 
 ## Document
 
-Please visit the [document site](w3labkr.github.io/).
+Please visit the [document site](https://w3labkr.github.io).
