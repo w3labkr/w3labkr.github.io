@@ -1,0 +1,69 @@
+minikube 최소설치환경
+
+    2 CPUs or more.
+    2GB of free memory.
+    20GB of free disk space.
+    Internet connection.
+    Container or virtual machine manager, such as: Docker, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMWare.
+------------------------------------------------------------------------------------------------------
+
+* centos7을 최소설치를 한것이라면 
+yum -y install bash-completion vim [nano] net-tools 를 설치
+
+1 docker install
+
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64   && chmod +x minikube
+
+3. cp -p minikube /usr/local/bin
+
+4. yum -y install conntrack
+
+5. minikube start --driver=none
+
+*  --driver 대상은 다음과 같은것들이 될수 있다.
+ 
+    docker (드라이버 설치)
+    virtualbox (드라이버 설치)
+    podman (드라이버 설치) (EXPERIMENTAL)
+    vmwarefusion
+    kvm2 (드라이버 설치)
+    hyperkit (드라이버 설치)
+    hyperv (드라이버 설치) 다음 IP는 동적이며 변경할 수 있다. minikube ip로 알아낼 수 있다.
+    vmware (드라이버 설치) (VMware unified driver)
+    parallels (드라이버 설치)
+    none (쿠버네티스 컴포넌트를 가상 머신이 아닌 호스트 상에서 구동한다. 리눅스를 실행중이어야 하고, 도커(Docker) 가 설치되어야 한다.)
+
+
+6. vi /root/.bash_profile 에 PATH 변수 수정  ; cubectl 이 파일이 위치한 경로를 추가해야 한다.
+[아래처럼 path 변수 수정]
+* 버전은 언제든지 업그레이드가 될수 있으므로 버전이 1.21.2 
+이 아니라면 find 명령어로 검색을 하면된다.
+ex) find / -name cubectl
+
+cat ~/.bash_profile
+# .bash_profile
+
+# Get the aliases and functions
+
+PATH=$PATH:/var/lib/minikube/binaries/v1.21.2
+
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+#PATH=$PATH:$HOME/bin
+export PATH
+
+그리고 kubectl 명령어 자동완성기능을 위해서 
+.bashrc 파일 맨아래에 다음의 명령어로 한줄추가.
+
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+
+
+8. logout 후 다시 login
+
+9. kubectl cluster-info 로 확인
+
+10. kubectl get nodes 로 확인
