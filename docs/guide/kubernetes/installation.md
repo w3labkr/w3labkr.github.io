@@ -1,37 +1,5 @@
 # Kubernetes
 
-멀티노드
-오케스트레이션툴
-
-docker swarm: 수백대 이상의 장비가 많은 상황에선 유지보수 어려움
-kubernetes: 표준
-openshift(redhat): 쿠버네티스 기반으로 만들어짐. 사용이 편리.
-
-하드웨어 사양
-- 권장 서버: 최소 3대
-- 권장 메모리 16GB, 최소 8GB
-- 메모리가 8GB가 안되는 사람은 minikube 이용한다.
-
-ram 8기가 이면
-- master: ram 2G
-- worker: ram 1G
-
-ram 16기가 이상이면
-- master: ram 4G
-- worker node: ram 2G
-
-minikube
-- master 1대가 worker 노드 기능까지 같이 하는거
-
-
-kubectl autocompletion
-```
-$ vim ~/.bashrc
-# Enable kubectl autocompletion
-echo 'source <(kubectl completion bash)' >>~/.bashrc
-
-$ source ~/.bashrc
-```
 ## 서버 중단
 ```
 $ ssh root@server2 poweroff

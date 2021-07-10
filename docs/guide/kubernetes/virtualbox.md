@@ -42,31 +42,17 @@ $ nmcli connection enp0s3
 $ ping node1
 ```
 
-
 ## ERROR
 
+```
 $ kubectl get node
 The connection to the server localhost:8080 was refused - did you specify the right host or port?
 
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 $ sudo chown admin:admin /home/admin/.kube/config
+```
 
-
-## 오케스트레이션
-
-노드 비교
-
-- 단일 노드: 도커
-- 멀티 노드: 쿠버네티스
-
-규모 비교
-
-- docker swarm: 중소규모
-- kubernetes: 대규모
-- openshift(상용): 대규모
-
-
-## 파드(pods)
+## PODS
 
 파드(pods)는 워크노드에서만 실행 되며 마스터노드에서는 실행되지 않는다.
 
@@ -137,5 +123,3 @@ Kind: 컨테이너
 metadata:
 spec: 오브젝트에 따라서 다른 이름으로 대체 될 수도 있다.
 ```
-
-

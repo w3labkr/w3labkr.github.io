@@ -1,0 +1,43 @@
+#! /bin/bash
+#------------------------------------------
+# edited by lee 
+# simple script for emulate command kubens
+#------------------------------------------
+
+if [ $# -eq 0 ]
+then
+	kubectl get ns
+	exit
+elif [ $# -ge 2 ] || [ "$1" == "--help" ] || [ "$1" == "-h" ]
+then
+	echo  -e "Usage: 
+		   kubens		: list the namespace 
+                   kubens <NAME>	: change the active namespace 
+		   kubens -c		: show the current namespace
+		   kubens -		: switch to the previous namespace (This option is not work)
+		"
+	exit
+fi
+
+if [ $1 == "-c" ]
+then
+	 ns_name=$(kubectl config view | grep namespace | awk '{print $2}')
+	 if [ $ns_name == "" ]
+	 then
+		namespace="default"
+	 fi
+		echo "current namespace: $ns_name"
+	exit
+fi	
+
+for ns_name in $(kubectl get ns|awk 'NR != 1 {print $1}')
+do
+	if [ "$1" == "$ns_name" ]
+	then
+		kubectl config set-context --current --namespace=$1
+		exit
+	else
+		continue
+	fi	
+done
+echo "namespace $1 not found"
