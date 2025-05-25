@@ -1,0 +1,20 @@
+# Git commit message guidelines
+#
+# <type>: <short description>
+#
+# Type can be one of the following:
+# - feat: A new feature
+# - fix: A bug fix
+# - docs: Documentation updates
+# - chore: Maintenance tasks (e.g., setting up or updating configuration)
+# - refactor: Code changes that neither fix a bug nor add a feature
+# - style: Code style changes (e.g., formatting, missing semi-colons)
+# - test: Adding or updating tests
+# - perf: Performance improvements
+#
+# Example:
+# feat: add user authentication component
+# fix: resolve API request failure
+#
+# If applicable, describe why the change was made or how it addresses a specific issue.
+# Add any relevant details in the following lines.
