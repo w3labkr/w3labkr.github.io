@@ -1,979 +1,744 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W3LabKR - Digital Product Studio</title>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K7S2PFP');</script>
-    <!-- End Google Tag Manager -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        /* Applying Inter font globally */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Custom scrollbar for project list if it gets too long - optional */
-        .project-grid::-webkit-scrollbar {
-            width: 8px;
-        }
-        .project-grid::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1; /* cool-gray-300 */
-            border-radius: 4px;
-        }
-        .project-grid::-webkit-scrollbar-track {
-            background-color: #f1f5f9; /* cool-gray-100 */
-        }
-        /* Subtle animation for project cards */
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        /* Ensure consistent card height if content varies significantly */
-        .project-grid .project-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Pushes tags to the bottom */
-            height: 100%; /* Make cards in a row same height */
-        }
-    </style>
+  <script>document.documentElement.classList.add('js');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W3LABKR - Independent Digital Product Studio</title>
+  <meta name="description" content="W3LABKR is an independent digital product studio building modern web applications, automation tooling, and open-source developer resources.">
+  <link rel="canonical" href="https://w3labkr.github.io/">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://w3labkr.github.io/">
+  <meta property="og:title" content="W3LABKR - Independent Digital Product Studio">
+  <meta property="og:description" content="Modern web applications, automation tooling, and open-source developer resources from an independent digital product studio.">
+  <meta property="og:site_name" content="W3LABKR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="W3LABKR - Independent Digital Product Studio">
+  <meta name="twitter:description" content="Modern web applications, automation tooling, and open-source developer resources from an independent digital product studio.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ccircle%20cx='50'%20cy='50'%20r='50'%20fill='black'/%3E%3Ctext%20x='50'%20y='68'%20font-family='Arial,%20sans-serif'%20font-size='58'%20font-weight='900'%20fill='white'%20text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K7S2PFP');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"Space Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"W3LABKR","url":"https://w3labkr.github.io/","sameAs":["https://github.com/w3labkr"]}
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .project-grid .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    #hero, #stack, #capabilities, #approach, #projects, #contact {
+      scroll-margin-top: 5rem;
+    }
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .js .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    @media print {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-800">
 
-    <header class="bg-white py-5 sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="https://w3labkr.github.io/" class="text-3xl font-bold text-black">W3LabKR</a>
-            <nav>
-                <a href="#hero" class="text-gray-700 hover:text-black px-4 py-2 rounded-md text-sm font-medium">Home</a>
-                <a href="#projects" class="text-gray-700 hover:text-black px-4 py-2 rounded-md text-sm font-medium">Projects</a>
-                <a href="#contact" class="text-gray-700 hover:text-black px-4 py-2 rounded-md text-sm font-medium">Contact</a>
-                <a href="https://github.com/w3labkr" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-black px-4 py-2 rounded-md text-sm font-medium">GitHub</a>
-            </nav>
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="icon-github" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"></path></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m0 0l-6-6m6 6l-6 6"></path></symbol>
+    <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7v8"></path></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 6.5l8.5 7 8.5-7"></path></symbol>
+    <symbol id="icon-web" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path stroke-linecap="round" stroke-linejoin="round" d="M3 8h18"></path><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l-2 2 2 2M15 12l2 2-2 2"></path></symbol>
+    <symbol id="icon-automation" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.25"></circle><path stroke-linecap="round" d="M12 3v2.5M12 18.5V21M21 12h-2.5M5.5 12H3M18.02 5.98l-1.77 1.77M7.75 16.27l-1.77 1.77M18.02 18.02l-1.77-1.77M7.75 7.73L5.98 5.98"></path></symbol>
+    <symbol id="icon-docs" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 2.25H6a2.25 2.25 0 00-2.25 2.25v15A2.25 2.25 0 006 21.75h12a2.25 2.25 0 002.25-2.25V11.25L14.25 2.25H9z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 2.25v6a2.25 2.25 0 002.25 2.25h6M8.25 13.5h7.5M8.25 17.25h4.5"></path></symbol>
+    <symbol id="icon-data" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 16v-4M12 16V8M17 16v-7"></path></symbol>
+  </svg>
+
+  <header class="bg-white/90 backdrop-blur py-4 sticky top-0 z-50 border-b border-gray-100">
+    <div class="container mx-auto px-6 flex items-center justify-between">
+      <a href="#hero" class="text-2xl font-black tracking-tight text-black">W3LABKR</a>
+      <nav class="hidden md:flex items-center gap-1" aria-label="Primary">
+        <a href="#hero" class="text-gray-700 hover:text-black px-4 py-2 text-sm font-medium">Home</a>
+        <a href="#capabilities" class="text-gray-700 hover:text-black px-4 py-2 text-sm font-medium">What We Do</a>
+        <a href="#approach" class="text-gray-700 hover:text-black px-4 py-2 text-sm font-medium">How We Work</a>
+        <a href="#projects" class="text-gray-700 hover:text-black px-4 py-2 text-sm font-medium">Work</a>
+        <a href="#contact" class="text-gray-700 hover:text-black px-4 py-2 text-sm font-medium">Contact</a>
+        <a href="https://github.com/w3labkr" target="_blank" rel="noopener noreferrer" class="ml-2 inline-flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 text-sm font-medium hover:border-black transition-colors">
+          <svg class="w-4 h-4" aria-hidden="true"><use href="#icon-github"></use></svg>GitHub
+        </a>
+      </nav>
+      <button id="nav-toggle" type="button" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md focus-visible:ring-2 focus-visible:ring-black" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+        <svg id="nav-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-menu"></use></svg>
+        <svg id="nav-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-gray-100 bg-white">
+      <nav class="flex flex-col px-6 py-4" aria-label="Primary mobile">
+        <a href="#hero" class="py-3 text-gray-700 hover:text-black text-base font-medium">Home</a>
+        <a href="#capabilities" class="py-3 text-gray-700 hover:text-black text-base font-medium">What We Do</a>
+        <a href="#approach" class="py-3 text-gray-700 hover:text-black text-base font-medium">How We Work</a>
+        <a href="#projects" class="py-3 text-gray-700 hover:text-black text-base font-medium">Work</a>
+        <a href="#contact" class="py-3 text-gray-700 hover:text-black text-base font-medium">Contact</a>
+        <a href="https://github.com/w3labkr" target="_blank" rel="noopener noreferrer" class="py-3 text-gray-700 hover:text-black text-base font-medium">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="relative bg-white overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32">
+      <div
+        class="absolute inset-0 opacity-40 pointer-events-none"
+        style="background-image: radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px); background-size: 22px 22px;"
+        aria-hidden="true">
+      </div>
+      <div
+        class="absolute top-0 right-0 -mt-32 -mr-32 w-96 h-96 md:w-[500px] md:h-[500px] opacity-60 pointer-events-none"
+        style="background: radial-gradient(circle, rgba(220,38,38,0.12) 0%, rgba(220,38,38,0.05) 40%, rgba(255,255,255,0) 75%); filter: blur(80px);"
+        aria-hidden="true">
+      </div>
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-wrap items-center -mx-4">
+          <div class="w-full md:w-3/5 lg:w-1/2 px-4">
+            <div class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 px-3 py-1.5 mb-6">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span class="font-mono text-xs uppercase tracking-widest text-gray-700">Available for new projects</span>
+            </div>
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-black mb-8 !leading-tight">
+              WE BUILD<br />MODERN WEB<br /><span class="text-red-600">PRODUCTS.</span>
+            </h1>
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mb-8">
+              <a href="#contact" class="inline-block bg-black text-white font-semibold py-3 px-10 rounded-full hover:bg-gray-800 transition-all duration-300 text-base md:text-lg hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black">
+                DISCUSS THE PROJECT
+              </a>
+              <a href="#projects" class="text-sm font-semibold text-gray-700 hover:text-black transition-colors">
+                See featured work &darr;
+              </a>
+            </div>
+            <p class="font-mono text-xs sm:text-sm text-gray-600 uppercase tracking-widest font-bold">
+              FULL-STACK DEVELOPMENT, AUTOMATION<br />&amp; OPEN-SOURCE TOOLING.
+            </p>
+          </div>
+          <div class="w-full md:w-2/5 lg:w-1/2 px-4 mt-16 md:mt-0">
+            <h2 class="sr-only">Who We Are</h2>
+            <div class="rounded-2xl bg-gray-900 shadow-2xl shadow-gray-900/20 border border-gray-800 overflow-hidden max-w-md ml-auto">
+              <div class="flex items-center gap-1.5 px-4 py-3 border-b border-gray-800">
+                <span class="w-2.5 h-2.5 rounded-full bg-gray-700" aria-hidden="true"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-gray-700" aria-hidden="true"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-gray-700" aria-hidden="true"></span>
+                <span class="ml-2 font-mono text-[11px] text-gray-500">about.sh</span>
+              </div>
+              <div class="p-6 font-mono text-sm leading-relaxed">
+                <p class="text-gray-400">$ whoami</p>
+                <p class="text-gray-100 mb-4">independent digital product studio</p>
+                <p class="text-gray-400">$ cat focus.md</p>
+                <p class="text-gray-100">- build web applications</p>
+                <p class="text-gray-100">- automate deployment workflows</p>
+                <p class="text-gray-100 mb-4">- open-source the tooling we build</p>
+                <p class="text-gray-400">$ <span class="animate-pulse">_</span></p>
+              </div>
+            </div>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-
-    <main>
-        <section id="hero" class="relative bg-white overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32">
-            <div class="absolute top-0 right-0 -mt-24 -mr-24 w-96 h-96 md:w-[500px] md:h-[500px] opacity-40"
-                 style="background: radial-gradient(circle, rgba(255, 220, 210, 0.6) 0%, rgba(255, 180, 190, 0.4) 40%, rgba(255,255,255,0) 75%); filter: blur(80px);">
-            </div>
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="flex flex-wrap items-center -mx-4">
-                    <div class="w-full md:w-3/5 lg:w-2/3 px-4">
-                        <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-black mb-8 !leading-tight">
-                            WE CREATE<br />BEST DIGITAL<br />PRODUCTS.
-                        </h1>
-                        <a href="#contact" class="inline-block border-2 border-black text-black font-semibold py-3 px-10 rounded-full hover:bg-black hover:text-white transition-all duration-300 mb-8 text-base md:text-lg transform hover:scale-105">
-                            DISCUSS THE PROJECT
-                        </a>
-                        <p class="text-xs sm:text-sm text-gray-600 uppercase tracking-wider font-semibold">
-                            WE ARE THE LEADERS IN WEB & MOBILE<br />DESIGN AND DEVELOPMENT INDUSTRY.
-                        </p>
-                    </div>
-                    <div class="w-full md:w-2/5 lg:w-1/3 px-4 mt-16 md:mt-2 text-left md:text-right">
-                        <div class="inline-block text-right relative group">
-                            <h2 class="text-sm sm:text-base font-bold text-black uppercase tracking-wider mb-1 relative inline-block">
-                                WHO WE ARE
-                                <span class="absolute bottom-0 right-0 w-full h-0.5 bg-black transform scale-x-100 group-hover:scale-x-100 transition-transform duration-300 origin-right"></span>
-                            </h2>
-                            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed mt-4 max-w-xs ml-auto">
-                                We create quality content and cool ideas. We create websites, applications, motion design and animation. We bring the most daring ideas to life.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="py-16 md:py-24 bg-slate-50">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-black mb-16">Open Source Projects</h2>
-
-                <div class="mb-16">
-                    <h3 class="text-2xl md:text-3xl font-semibold text-black mb-8 text-center sm:text-left">Documentation & Guidelines</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid">
-                        <a href="https://github.com/w3labkr/guidelines" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Project Guidelines</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Comprehensive guidelines for project development and coding standards.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Documentation</span>
-                                    <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Standards</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/guidelines-example" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Guidelines Example</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Example implementation and usage of the project guidelines.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Documentation</span>
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Example</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/styleguide" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Styleguide</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Visual styleguide and UI component library for consistent design.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">UI/UX</span>
-                                    <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Design</span>
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Frontend</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/grid-system" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Grid System</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">A flexible and responsive grid system for web layouts.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">CSS</span>
-                                    <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Layout</span>
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Frontend</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/gh-docs" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">GitHub Docs</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Templates and tools for creating documentation using GitHub Pages.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Documentation</span>
-                                    <span class="text-xs bg-black text-white px-2 py-1 rounded-full font-medium">GitHub</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/html5-hentry-markup" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">HTML5 hEntry Markup</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Examples and guidelines for using hEntry microformat in HTML5.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">HTML5</span>
-                                    <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Microformats</span>
-                                    <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">SEO</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/html5-schema-markup" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">HTML5 Schema.org Markup</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Guide to implementing Schema.org structured data in HTML5.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">HTML5</span>
-                                    <span class="text-xs bg-lime-100 text-lime-700 px-2 py-1 rounded-full font-medium">Schema.org</span>
-                                    <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">SEO</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="mb-16">
-                    <h3 class="text-2xl md:text-3xl font-semibold text-black mb-8 text-center sm:text-left">Web & Mobile Projects</h3>
-                    <div class="mb-10">
-                        <h4 class="text-xl md:text-2xl font-medium text-gray-800 mb-6 pl-4 border-l-4 border-sky-500">Next.js & React</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid mb-10">
-                            <a href="https://github.com/w3labkr/nextjs14-aisdk4-chatbot" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Next.js 14 AI SDK Chatbot</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">AI Chatbot built with Next.js 14 and Vercel AI SDK.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded-full font-medium">Next.js</span>
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">AI</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">Chatbot</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/nextjs14-authjs5-dashboard" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Next.js 14 AuthJS Dashboard</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Dashboard with Next.js 14 & Auth.js v5 authentication.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded-full font-medium">Next.js</span>
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">AuthJS</span>
-                                        <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full font-medium">Dashboard</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/nextjs14-supabase-dashboard" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Next.js 14 Supabase Dashboard</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Dashboard with Supabase integration, built on Next.js 14.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded-full font-medium">Next.js</span>
-                                    <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Supabase</span>
-                                    <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full font-medium">Dashboard</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/nextjs14-supabase-blog" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Next.js 14 Supabase Blog</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Blog platform using Next.js 14 and Supabase backend.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded-full font-medium">Next.js</span>
-                                    <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Supabase</span>
-                                    <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">Blog</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/nextjs14-qrcode-generator" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Next.js 14 QR Code Generator</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">QR Code generator built with Next.js 14.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded-full font-medium">Next.js</span>
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">QR Code</span>
-                                    <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">Generator</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/nextjs14-examples" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Next.js 14 Examples</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Various examples demonstrating features of Next.js 14.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded-full font-medium">Next.js</span>
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Examples</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/w3labkr/react-examples" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div>
-                                <div class="flex items-start mb-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                    <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">React Examples</h3>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Collection of React.js examples, patterns, and practices.</p>
-                            </div>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">React</span>
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Examples</span>
-                                    <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">JavaScript</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mb-10">
-                        <h4 class="text-xl md:text-2xl font-medium text-gray-800 mb-6 pl-4 border-l-4 border-teal-500">Pure JS & Flutter</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid">
-                            <a href="https://github.com/w3labkr/js-post-iframe" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">JS Post Iframe</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">JavaScript utility for cross-origin communication with iframes using postMessage.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">JavaScript</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Iframe</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">Communication</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/js-growing-tree" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">JS Growing Tree</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">JavaScript implementation of the growing tree algorithm for maze generation.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">JavaScript</span>
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Algorithm</span>
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">Maze</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/js-smart-shuffle-words" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">JS Smart Shuffle Words</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">JavaScript function for intelligently shuffling words in a string.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">JavaScript</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Text</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">Utility</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/js-shuffle-words" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">JS Shuffle Words</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Basic JavaScript utility to shuffle the order of words in a sentence.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                         <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">JavaScript</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Text</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/d3js-chart" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">D3.js Chart Examples</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Examples of various chart types implemented using D3.js.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">D3.js</span>
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Charts</span>
-                                        <span class="text-xs bg-lime-100 text-lime-700 px-2 py-1 rounded-full font-medium">Visualization</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/jquery-map" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0  3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">jQuery Map</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Interactive map functionality implemented using jQuery.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">jQuery</span>
-                                        <span class="text-xs bg-lime-100 text-lime-700 px-2 py-1 rounded-full font-medium">Maps</span>
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">JavaScript</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/js-vuepress" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">JS VuePress Starter</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Starter template for building documentation sites with VuePress.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">VuePress</span>
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">JavaScript</span>
-                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Documentation</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/flutter-webview" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Flutter WebView</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Example demonstrating WebView integration in a Flutter application.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full font-medium">Flutter</span>
-                                        <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full font-medium">WebView</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Mobile</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/flutter-examples" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Flutter Examples</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Various examples showcasing Flutter framework capabilities.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full font-medium">Flutter</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Mobile</span>
-                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Examples</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div> <h4 class="text-xl md:text-2xl font-medium text-gray-800 mb-6 pl-4 border-l-4 border-blue-500">WordPress Starters</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid">
-                            <a href="https://github.com/w3labkr/wp5-starter-theme" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">WordPress 5 Starter Theme</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">A basic starter theme for WordPress 5 development.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">WordPress</span>
-                                        <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full font-medium">Theme</span>
-                                        <span class="text-xs bg-rose-100 text-rose-700 px-2 py-1 rounded-full font-medium">PHP</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/wp5-starter-bootstrap4" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">WordPress 5 Starter Bootstrap 4</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">WordPress starter theme integrated with Bootstrap 4.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">WordPress</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">Bootstrap</span>
-                                        <span class="text-xs bg-rose-100 text-rose-700 px-2 py-1 rounded-full font-medium">PHP</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-16">
-                    <h3 class="text-2xl md:text-3xl font-semibold text-black mb-8 text-center sm:text-left">Backend & Deployment Scripts</h3>
-                    <div class="mb-10">
-                        <h4 class="text-xl md:text-2xl font-medium text-gray-800 mb-6 pl-4 border-l-4 border-yellow-500">Python</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid">
-                            <a href="https://github.com/w3labkr/py-image-toolkit" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Python Image Toolkit</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Toolkit for various image processing tasks in Python.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Python</span>
-                                        <span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">Image Processing</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/py-pdf-merger" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Python PDF Merger</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Python utility for merging multiple PDF files.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Python</span>
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">PDF</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Utility</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/py-flask" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Python Flask Starter</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Starter template for Python Flask web applications.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Python</span>
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Flask</span>
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">Web</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/py-fileinfo" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Python File Info</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Python utility for retrieving detailed file information.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Python</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">File Utility</span>
-                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">CLI</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="mb-10">
-                        <h4 class="text-xl md:text-2xl font-medium text-gray-800 mb-6 pl-4 border-l-4 border-green-500">Node.js</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid">
-                           <a href="https://github.com/w3labkr/nodejs-express" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Node.js Express Starter</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Starter project for building web applications with Node.js and Express.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Node.js</span>
-                                        <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full font-medium">Express</span>
-                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Backend</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/nodejs-express-board" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Node.js Express Board</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Simple bulletin board system built with Node.js and Express.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Node.js</span>
-                                        <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full font-medium">Express</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Board</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/gulp-vanilla" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Gulp Vanilla Setup</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">A simple and efficient Gulp setup for modern web development.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">Gulp</span>
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Node.js</span>
-                                        <span class="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded-full font-medium">Build Tool</span>
-                                        <span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">Frontend</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                     <div class="mb-10">
-                        <h4 class="text-xl md:text-2xl font-medium text-gray-800 mb-6 pl-4 border-l-4 border-blue-600">Shell Scripts & Docker</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid">
-                            <a href="https://github.com/w3labkr/sh-access-log-audit" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Shell Access Log Audit</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Shell script for auditing and analyzing server access logs.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Shell</span>
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Log Analysis</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">Security</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/sh-squid-proxy-installer" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Squid Proxy Installer</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Shell script for easy installation of Squid proxy server.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Shell</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Squid</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">Proxy</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/sh-amp" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Shell AMP Installer</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Shell script for installing Apache, MySQL, PHP (AMP) stack.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Shell</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">AMP</span>
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">Server</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/sh-vhost" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Shell VHost Manager</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Shell script for managing virtual hosts on a web server.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Shell</span>
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">VHost</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Server Admin</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/sh-sshkeys" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Shell SSH Keys Manager</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Shell script for managing SSH keys and authorized users.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Shell</span>
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">SSH</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">Security</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/docker-lamp-stack" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Docker LAMP Stack</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Docker configuration for a LAMP (Linux, Apache, MySQL, PHP) stack.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Docker</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">LAMP</span>
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">Web Server</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/docker-laradock-examples" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Docker Laradock Examples</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Example configurations and usage of Laradock for Docker environments.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Docker</span>
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">Laradock</span>
-                                        <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">PHP</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-xl md:text-2xl font-medium text-gray-800 mb-6 pl-4 border-l-4 border-purple-500">PHP</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid">
-                            <a href="https://github.com/w3labkr/php-with-bladeone" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">PHP with BladeOne</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Example of using BladeOne templating engine with PHP.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full font-medium">PHP</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">BladeOne</span>
-                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Templating</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/php-minifier" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">PHP Minifier</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">PHP script for minifying HTML, CSS, and JavaScript files.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full font-medium">PHP</span>
-                                        <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">Minifier</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Optimization</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div> <h3 class="text-2xl md:text-3xl font-semibold text-black mb-8 text-center sm:text-left">Fonts & Data Tools</h3>
-                    <div class="mb-10">
-                        <h4 class="text-xl md:text-2xl font-medium text-gray-800 mb-6 pl-4 border-l-4 border-pink-500">Fonts</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid">
-                            <a href="https://github.com/w3labkr/font-noto" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Noto Fonts Collection</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Collection of Noto fonts for global language support.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Fonts</span>
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">Noto</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Typography</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/font-nanum" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">Nanum Fonts Collection</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Collection of Nanum fonts, popular Korean typefaces.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Fonts</span>
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Nanum</span>
-                                        <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full font-medium">Korean</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-xl md:text-2xl font-medium text-gray-800 mb-6 pl-4 border-l-4 border-purple-500">Spreadsheets & Notebooks</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 project-grid">
-                            <a href="https://github.com/w3labkr/gsheet-worklog" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">GSheet Worklog</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Google Sheets template for tracking work logs and project hours.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Google Sheets</span>
-                                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Productivity</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/xlsm-form" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">XLSM Form</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Excel (XLSM) form template with VBA macros for data entry.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full font-medium">Excel</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">VBA</span>
-                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Form</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/xlsm-trading-statement" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">XLSM Trading Statement</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Excel (XLSM) template for generating trading statements.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full font-medium">Excel</span>
-                                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Finance</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">VBA</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/ipynb-openapi" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">IPYNB OpenAPI</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Jupyter Notebook for interacting with OpenAPI (Swagger) specifications.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">Jupyter</span>
-                                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">OpenAPI</span>
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Python</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/ipynb-openstreetmap" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">IPYNB OpenStreetMap</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Jupyter Notebook for working with OpenStreetMap data.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">Jupyter</span>
-                                        <span class="text-xs bg-lime-100 text-lime-700 px-2 py-1 rounded-full font-medium">OpenStreetMap</span>
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Maps</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/w3labkr/ipynb-scraper" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div>
-                                    <div class="flex items-start mb-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-3 text-gray-700 group-hover:text-black transition-colors duration-300 flex-shrink-0 mt-0.5"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight">IPYNB Scraper</h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Jupyter Notebook examples for web scraping techniques.</p>
-                                </div>
-                                <div class="mt-auto">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">Jupyter</span>
-                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">Scraping</span>
-                                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-medium">Python</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-black mb-6">Let's Discuss Your Project</h2>
-                <p class="text-gray-700 mb-8 max-w-xl mx-auto">
-                    Have an idea or need a digital solution? We're here to help. Reach out to us to start the conversation.
-                </p>
-                <a href="mailto:info@w3lab.kr" class="inline-block bg-black text-white font-semibold py-4 px-10 rounded-full hover:bg-gray-800 transition duration-300 text-lg transform hover:scale-105">
-                    Get In Touch
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 W3LabKr. All rights reserved.</p>
+    <section id="stack" class="py-8 border-y border-gray-100 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+          <p class="font-mono text-xs uppercase tracking-widest text-gray-500 whitespace-nowrap">Stack we ship with</p>
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-8 gap-y-3">
+            <span class="font-mono text-sm text-gray-500 hover:text-black transition-colors">Next.js</span>
+            <span class="font-mono text-sm text-gray-500 hover:text-black transition-colors">React</span>
+            <span class="font-mono text-sm text-gray-500 hover:text-black transition-colors">React Native</span>
+            <span class="font-mono text-sm text-gray-500 hover:text-black transition-colors">Node.js</span>
+            <span class="font-mono text-sm text-gray-500 hover:text-black transition-colors">FastAPI</span>
+            <span class="font-mono text-sm text-gray-500 hover:text-black transition-colors">Laravel</span>
+            <span class="font-mono text-sm text-gray-500 hover:text-black transition-colors">CodeIgniter</span>
+            <span class="font-mono text-sm text-gray-500 hover:text-black transition-colors">WordPress</span>
+            <span class="font-mono text-sm text-gray-500 hover:text-black transition-colors">Flutter</span>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
+    <section id="capabilities" class="py-16 md:py-24 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-2xl mx-auto text-center mb-12 md:mb-16 transition-all duration-700 reveal">
+          <p class="font-mono text-xs uppercase tracking-widest text-red-600 font-bold mb-3">// What We Do</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Capabilities grounded in real work</h2>
+          <p class="text-gray-600">Every capability below maps to a proof-of-work group in <a href="#projects" class="underline decoration-gray-300 hover:decoration-black text-gray-700 hover:text-black transition-colors">featured work</a>.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div class="group bg-white border border-slate-200 rounded-2xl p-8 hover:border-black hover:shadow-lg transition-all duration-300 reveal">
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl border-2 border-black text-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-web"></use></svg>
+              </div>
+              <span class="font-mono text-xs text-gray-300 group-hover:text-gray-400 transition-colors">/ 01</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Web &amp; App Development</h3>
+            <p class="text-sm text-gray-600">Performant web and mobile experiences &mdash; from dashboards to marketing sites.</p>
+          </div>
+          <div class="group bg-white border border-slate-200 rounded-2xl p-8 hover:border-black hover:shadow-lg transition-all duration-300 reveal">
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl border-2 border-black text-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-automation"></use></svg>
+              </div>
+              <span class="font-mono text-xs text-gray-300 group-hover:text-gray-400 transition-colors">/ 02</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Automation &amp; DevOps</h3>
+            <p class="text-sm text-gray-600">Deployment scripts, Docker stacks, and backend services that keep infrastructure repeatable.</p>
+          </div>
+          <div class="group bg-white border border-slate-200 rounded-2xl p-8 hover:border-black hover:shadow-lg transition-all duration-300 reveal">
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl border-2 border-black text-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-docs"></use></svg>
+              </div>
+              <span class="font-mono text-xs text-gray-300 group-hover:text-gray-400 transition-colors">/ 03</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Documentation &amp; Standards</h3>
+            <p class="text-sm text-gray-600">Style guides and documentation systems that keep growing codebases consistent.</p>
+          </div>
+          <div class="group bg-white border border-slate-200 rounded-2xl p-8 hover:border-black hover:shadow-lg transition-all duration-300 reveal">
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl border-2 border-black text-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-data"></use></svg>
+              </div>
+              <span class="font-mono text-xs text-gray-300 group-hover:text-gray-400 transition-colors">/ 04</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Data &amp; Utility Tooling</h3>
+            <p class="text-sm text-gray-600">Notebooks, spreadsheet templates, and scripts that turn repetitive data tasks into reusable tools.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-2xl mx-auto text-center mb-12 md:mb-16 transition-all duration-700 reveal">
+          <p class="font-mono text-xs uppercase tracking-widest text-red-600 font-bold mb-3">// How We Work</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">A process built for shipping</h2>
+        </div>
+        <div class="relative grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+          <div class="hidden md:block absolute top-6 left-6 right-6 h-px bg-gray-200" aria-hidden="true"></div>
+          <div class="relative transition-all duration-700 reveal">
+            <div class="relative z-10 w-12 h-12 rounded-full bg-black text-white font-mono text-sm font-bold flex items-center justify-center mb-5">01</div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Discover</h3>
+            <p class="text-sm text-gray-600">Understand the problem before writing code.</p>
+          </div>
+          <div class="relative transition-all duration-700 reveal">
+            <div class="relative z-10 w-12 h-12 rounded-full bg-black text-white font-mono text-sm font-bold flex items-center justify-center mb-5">02</div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Build</h3>
+            <p class="text-sm text-gray-600">Ship in focused iterations with proven technology.</p>
+          </div>
+          <div class="relative transition-all duration-700 reveal">
+            <div class="relative z-10 w-12 h-12 rounded-full bg-black text-white font-mono text-sm font-bold flex items-center justify-center mb-5">03</div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Document</h3>
+            <p class="text-sm text-gray-600">Every project ships with docs, not just code.</p>
+          </div>
+          <div class="relative transition-all duration-700 reveal">
+            <div class="relative z-10 w-12 h-12 rounded-full bg-black text-white font-mono text-sm font-bold flex items-center justify-center mb-5">04</div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Support</h3>
+            <p class="text-sm text-gray-600">Available for iteration after launch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-16 md:py-24 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-2xl mx-auto text-center mb-12 md:mb-16 transition-all duration-700 reveal">
+          <p class="font-mono text-xs uppercase tracking-widest text-red-600 font-bold mb-3">// Proof of Work</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Featured Work</h2>
+          <p class="text-gray-600">A curated selection of our open-source work. Explore everything on GitHub.</p>
+        </div>
+
+        <div class="mb-16">
+          <div class="flex items-center gap-3 mb-8">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-500" aria-hidden="true"></span>
+            <h3 class="text-xl md:text-2xl font-semibold text-gray-900">Web &amp; App Development</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 project-grid">
+            <a href="https://github.com/w3labkr/nextjs14-aisdk4-chatbot" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/nextjs14-aisdk4-chatbot</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">Next.js 14 AI SDK Chatbot</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">AI Chatbot built with Next.js 14 and Vercel AI SDK.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Next.js</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">AI</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Chatbot</span>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com/w3labkr/nextjs14-authjs5-dashboard" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/nextjs14-authjs5-dashboard</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">Next.js 14 AuthJS Dashboard</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Dashboard with Next.js 14 &amp; Auth.js v5 authentication.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Next.js</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">AuthJS</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Dashboard</span>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com/w3labkr/nextjs14-supabase-blog" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/nextjs14-supabase-blog</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">Next.js 14 Supabase Blog</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Blog platform using Next.js 14 and Supabase backend.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Next.js</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Supabase</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Blog</span>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com/w3labkr/wp5-starter-theme" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/wp5-starter-theme</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">WordPress 5 Starter Theme</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">A basic starter theme for WordPress 5 development.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">WordPress</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Theme</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">PHP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <div class="flex items-center gap-3 mb-8">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
+            <h3 class="text-xl md:text-2xl font-semibold text-gray-900">Automation &amp; DevOps</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 project-grid">
+            <a href="https://github.com/w3labkr/docker-lamp-stack" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/docker-lamp-stack</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">Docker LAMP Stack</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Docker configuration for a LAMP (Linux, Apache, MySQL, PHP) stack.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-medium">Docker</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">LAMP</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Web Server</span>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com/w3labkr/sh-access-log-audit" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/sh-access-log-audit</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">Shell Access Log Audit</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Shell script for auditing and analyzing server access logs.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-medium">Shell</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Log Analysis</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Security</span>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com/w3labkr/py-image-toolkit" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/py-image-toolkit</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">Python Image Toolkit</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Toolkit for various image processing tasks in Python.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-medium">Python</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Image Processing</span>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com/w3labkr/nodejs-express" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/nodejs-express</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">Node.js Express Starter</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Starter project for building web applications with Node.js and Express.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-medium">Node.js</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Express</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Backend</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <div class="flex items-center gap-3 mb-8">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500" aria-hidden="true"></span>
+            <h3 class="text-xl md:text-2xl font-semibold text-gray-900">Documentation &amp; Standards</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 project-grid">
+            <a href="https://github.com/w3labkr/guidelines" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/guidelines</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">Project Guidelines</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Comprehensive guidelines for project development and coding standards.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded-full font-medium">Documentation</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Standards</span>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com/w3labkr/styleguide" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/styleguide</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">Styleguide</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Visual styleguide and UI component library for consistent design.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded-full font-medium">UI/UX</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Design</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Frontend</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center gap-3 mb-8">
+            <span class="w-2.5 h-2.5 rounded-full bg-violet-500" aria-hidden="true"></span>
+            <h3 class="text-xl md:text-2xl font-semibold text-gray-900">Data &amp; Utility Tooling</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 project-grid">
+            <a href="https://github.com/w3labkr/ipynb-scraper" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/ipynb-scraper</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">IPYNB Scraper</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Jupyter Notebook examples for web scraping techniques.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-violet-100 text-violet-700 px-2 py-1 rounded-full font-medium">Jupyter</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Scraping</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Python</span>
+                </div>
+              </div>
+            </a>
+            <a href="https://github.com/w3labkr/gsheet-worklog" target="_blank" rel="noopener noreferrer" class="project-card group bg-white p-6 md:p-7 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black reveal">
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300 flex-shrink-0" aria-hidden="true"><use href="#icon-github"></use></svg>
+                    <span class="font-mono text-xs text-gray-500 truncate">w3labkr/gsheet-worklog</span>
+                  </div>
+                  <svg class="w-4 h-4 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-800 group-hover:text-black transition-colors duration-300 leading-tight mb-2">GSheet Worklog</h4>
+                <p class="text-sm text-gray-600 mb-4 min-h-[3rem] line-clamp-2">Google Sheets template for tracking work logs and project hours.</p>
+              </div>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-violet-100 text-violet-700 px-2 py-1 rounded-full font-medium">Google Sheets</span>
+                  <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">Productivity</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-16 rounded-2xl bg-black text-white overflow-hidden transition-all duration-700 reveal">
+          <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-800 text-center">
+            <div class="p-8">
+              <p class="font-mono text-3xl md:text-4xl font-bold mb-1">12</p>
+              <p class="font-mono text-xs uppercase tracking-widest text-gray-400">Curated Projects</p>
+            </div>
+            <div class="p-8">
+              <p class="font-mono text-3xl md:text-4xl font-bold mb-1">4</p>
+              <p class="font-mono text-xs uppercase tracking-widest text-gray-400">Focus Areas</p>
+            </div>
+            <div class="p-8">
+              <p class="font-mono text-3xl md:text-4xl font-bold mb-1">100%</p>
+              <p class="font-mono text-xs uppercase tracking-widest text-gray-400">Open Source</p>
+            </div>
+          </div>
+          <div class="text-center p-10 md:p-14 border-t border-gray-800">
+            <h3 class="text-2xl font-bold mb-3">More Open-Source Projects</h3>
+            <p class="text-gray-300 mb-6 max-w-xl mx-auto">Starter templates, automation scripts, and tooling across the stack &mdash; explore the full catalog on GitHub.</p>
+            <a href="https://github.com/w3labkr?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-black font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white">
+              View All Projects on GitHub
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-12 transition-all duration-700 reveal">
+          <p class="font-mono text-xs uppercase tracking-widest text-red-600 font-bold mb-3">// Get In Touch</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Let's Build Something</h2>
+          <p class="text-gray-600 max-w-xl mx-auto">Have a project in mind or need help with web development, automation, or documentation? Send a message and we'll get back to you.</p>
+        </div>
+        <div class="max-w-2xl mx-auto bg-slate-50 border border-slate-200 rounded-2xl p-8 md:p-12 transition-all duration-700 reveal">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl border-2 border-black text-black flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-mail"></use></svg>
+              </div>
+              <div>
+                <p class="font-mono text-xs uppercase tracking-widest text-gray-500 mb-1">Email</p>
+                <a href="mailto:info@w3lab.kr" class="text-gray-800 font-medium hover:text-black transition-colors">info@w3lab.kr</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl border-2 border-black text-black flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" aria-hidden="true"><use href="#icon-github"></use></svg>
+              </div>
+              <div>
+                <p class="font-mono text-xs uppercase tracking-widest text-gray-500 mb-1">GitHub</p>
+                <a href="https://github.com/w3labkr" target="_blank" rel="noopener noreferrer" class="text-gray-800 font-medium hover:text-black transition-colors">github.com/w3labkr</a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-gray-500">We read every message personally and reply as soon as we can.</p>
+            <a href="mailto:info@w3lab.kr" class="inline-block bg-black text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black flex-shrink-0">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 text-gray-400">
+    <div class="container mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-12 border-b border-gray-800">
+        <div class="md:col-span-5">
+          <a href="#hero" class="text-2xl font-black text-white">W3LABKR</a>
+          <p class="mt-4 text-sm leading-relaxed max-w-xs">
+            Independent digital product studio building web applications, automation tooling, and open-source developer resources.
+          </p>
+        </div>
+        <div class="md:col-span-3">
+          <h2 class="font-mono text-xs uppercase tracking-widest text-gray-400 mb-4">Navigate</h2>
+          <nav class="flex flex-col gap-3 text-sm" aria-label="Navigate">
+            <a href="#hero" class="hover:text-white transition-colors">Home</a>
+            <a href="#capabilities" class="hover:text-white transition-colors">What We Do</a>
+            <a href="#approach" class="hover:text-white transition-colors">How We Work</a>
+            <a href="#projects" class="hover:text-white transition-colors">Work</a>
+          </nav>
+        </div>
+        <div class="md:col-span-4">
+          <h2 class="font-mono text-xs uppercase tracking-widest text-gray-400 mb-4">Contact</h2>
+          <p class="text-sm">
+            <a href="mailto:info@w3lab.kr" class="hover:text-white transition-colors">info@w3lab.kr</a>
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <p class="text-xs leading-relaxed">
+          상호: 웹연구소 &middot; 대표: 박준현 &middot; 사업자등록번호: 218-42-01385<br class="md:hidden">
+          <span class="hidden md:inline">&middot; </span>주소: 경상남도 양산시 삼일로 134-2, 101-07호(중부동) &middot; 전화: 010-3378-4546
+        </p>
+        <p class="text-xs whitespace-nowrap">&copy; <span id="copyright-year"></span> W3LABKR. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && revealEls.length) {
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
         });
-    </script>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7S2PFP"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => revealObserver.observe(el));
+      setTimeout(() => revealEls.forEach(el => el.classList.add('is-visible')), 5000);
+    } else {
+      revealEls.forEach(el => el.classList.remove('reveal'));
+    }
+
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navIconOpen = document.getElementById('nav-icon-open');
+    const navIconClose = document.getElementById('nav-icon-close');
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      navIconOpen.classList.remove('hidden');
+      navIconClose.classList.add('hidden');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetHref = this.getAttribute('href');
+        const targetElement = document.querySelector(targetHref);
+        if (targetElement) {
+          const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          targetElement.scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+          });
+        }
+        if (targetHref === '#hero') {
+          history.replaceState(null, '', location.pathname + location.search);
+        }
+      });
+    });
+
+    navToggle.addEventListener('click', function () {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        mobileMenu.classList.remove('hidden');
+        navIconOpen.classList.add('hidden');
+        navIconClose.classList.remove('hidden');
+        navToggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+      }
+    });
+
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7S2PFP"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
